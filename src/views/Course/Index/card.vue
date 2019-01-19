@@ -1,4 +1,3 @@
-
 <template>
   <el-row>
     <el-col span="24">
@@ -11,92 +10,91 @@
       </el-carousel>
     </el-col>
     <div class="block">
-      <el-cascader placeholder="试试搜索：指南"
+      <el-cascader placeholder="选择年级"
                    :options="options"
-                   filterable></el-cascader>
+                   filterable
+                   :change-on-select="true"
+                   @change="handlechange"></el-cascader>
     </div>
     <div>
-      <el-button @click="resetDateFilter">清除日期过滤器</el-button>
-      <el-button @click="clearFilter">清除所有过滤器</el-button>
-      <el-table ref="filterTable"
-                :data="tableData"
-                style="width: 100%">
-        <el-table-column prop="date"
-                         label="日期"
-                         sortable
-                         width="180"
-                         column-key="date"
-                         :filters="[{text: '2016-05-01', value: '2016-05-01'}, {text: '2016-05-02', value: '2016-05-02'}, {text: '2016-05-03', value: '2016-05-03'}, {text: '2016-05-04', value: '2016-05-04'}]"
-                         :filter-method="filterHandler">
-        </el-table-column>
-        <el-table-column prop="name"
-                         label="姓名"
-                         width="180">
-        </el-table-column>
-        <el-table-column prop="address"
-                         label="地址"
-                         :formatter="formatter">
-        </el-table-column>
-        <el-table-column prop="tag"
-                         label="标签"
-                         width="100"
-                         :filters="[{ text: '家', value: '家' }, { text: '公司', value: '公司' }]"
-                         :filter-method="filterTag"
-                         filter-placement="bottom-end">
-          <template slot-scope="scope">
-            <el-tag :type="scope.row.tag === '家' ? 'primary' : 'success'"
-                    disable-transitions>{{scope.row.tag}}</el-tag>
-          </template>
-        </el-table-column>
-      </el-table>
+      <el-row style="flex"
+              justify="center"
+              align="top">
+        <el-col :span="4"
+                v-for="(item,index) in cardimg"
+                :key="index">
+          <el-card :body-style="{ padding: '0px' }"
+                   class="elCard">
+            <img :src="item.pic_url"
+                 class="image">
+            <div class="bottom clearfix">
+              <el-button type="success">点击观看</el-button>
+              <el-tag type="success"
+                      style="margin-top:5px;">{{item.name}}}</el-tag>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
     </div>
   </el-row>
 </template>
 
 <script>
+import * as  types from '../../../store/types'
 export default {
   data () {
     return {
       options: [{
-        value: 'zhinan',
+        value: 'xiaoxue',
         label: '小学',
         children: [{
           value: 'yinianji',
           label: '一年级',
         },
         {
-          value: 'yinianji',
+          value: 'ernianji',
           label: '二年级',
         },
-        {          value: 'yinianji',
+        {          value: 'sannianji',
           label: '三年级',
         },
         {
-          value: 'yinianji',
+          value: 'sinianji',
           label: '四年级',
         },
         {
-          value: 'yinianji',
+          value: 'wunianji',
           label: '五年级',
         },
         {
-          value: 'yinianji',
+          value: 'liunianji',
           label: '六年级',
         }]
       }],
       cardimg: [],
-      value4: null
+      value4: null,
     }
   },
   created () {
-    this.axios.post('/api/cardimg', { token: "sun" }).then((result) => {
-      // this.options = result.data.name
-      // this.year = result.data.year
+    this.$store.commit(types.TITLE, sessionStorage.token)
+    console.log(this.$store.state.token)
+    this.axios.post('/api/cardimg', { token: this.$store.state.token }).then((result) => {
       this.cardimg = result.data
       console.log(result)
+      console.log(sessionStorage)
     }).catch((err) => {
       console.log(err)
     });
+  },
+  methods: {
+    handlechange (value) {
+      console.log(value[1])
+      this.axios.post('/api/ycourse', { token: this.$store.state.token, crouse: value }).then((result) => {
+        console.log(result)
+        this.cardimg = result.data
+      })
+      console.log(this)
+    },
   }
 }
 </script>
@@ -114,6 +112,11 @@ export default {
   margin-left: 17px;
   display: inline-block;
   vertical-align: top;
+}
+.elCard {
+  height: 350px;
+  width: 200px;
+  margin-top: 20px;
 }
 .title1 {
   letter-spacing: 1px;
@@ -135,6 +138,11 @@ export default {
   display: flex;
   width: 300px;
   overflow: hidden;
+}
+.VideoText {
+  display: flex;
+  justify-content: center;
+  width: 50%;
 }
 .list-r {
 }
@@ -206,8 +214,8 @@ export default {
 }
 
 .image {
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 250px;
   display: block;
 }
 

@@ -66,7 +66,7 @@ export default {
   methods: {
     LogOut () {
       this.$store.commit(types.LOGIN)
-      // this.reload()
+      sessionStorage.removeItem('token')
       console.log(this.$store.commit(types.LOGIN))
       router.go(0)
     }

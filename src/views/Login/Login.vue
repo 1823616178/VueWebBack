@@ -67,8 +67,10 @@ export default {
         if (valid) {
           this.axios.post('/api/login', params).then((result) => {
             console.log(result)
-            this.$store.commit(types.LOGIN, result.data.accessToken)
-            this.$store.commit(types.TITLE, '退出登陆')
+            sessionStorage.setItem('token', result.data.accessToken)
+
+            console.log(sessionStorage)
+            this.$store.commit(types.LOGIN, sessionStorage.token)
             this.$router.push({ path: '/' })
             // router.go(0)
             this.reload()
