@@ -8,6 +8,7 @@ import Repository from './repository.vue'
 import store from './store/store'
 import register from '@/views/Login/Register.vue'
 import course from '@/views/Course/course'
+import uservideo from '@/views/UserVideo/Index.vue'
 
 Vue.use(Router)
 
@@ -44,9 +45,14 @@ const routes = [
     component: register
   },
   {
-    id:5,
-    path:'/course',
-    component:course
+    id: 5,
+    path: '/course',
+    component: course
+  },
+  {
+    id: 6,
+    path: '/video',
+    component: uservideo
   }
 ]
 if (window.localStorage.getItem('token')) {
