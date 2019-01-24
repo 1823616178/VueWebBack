@@ -9,6 +9,7 @@ import store from './store/store'
 import register from '@/views/Login/Register.vue'
 import course from '@/views/Course/course'
 import uservideo from '@/views/UserVideo/Index.vue'
+import poccal from '@/views/LookVideo/Index.vue'
 
 Vue.use(Router)
 
@@ -51,8 +52,13 @@ const routes = [
   },
   {
     id: 6,
-    path: '/video',
+    path: '/video/:id',
     component: uservideo
+  },
+  {
+    id: 7,
+    path: '/look',
+    component: poccal
   }
 ]
 if (window.localStorage.getItem('token')) {

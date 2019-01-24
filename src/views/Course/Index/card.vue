@@ -28,9 +28,10 @@
             <img :src="item.pic_url"
                  class="image">
             <div class="bottom clearfix">
-              <el-button type="success">点击观看</el-button>
+              <el-button type="success"
+                         @click="onSubmit(item.id)">点击观看</el-button>
               <el-tag type="success"
-                      style="margin-top:5px;">{{item.name}}}</el-tag>
+                      style="margin-top:5px;">{{item.name}}</el-tag>
             </div>
           </el-card>
         </el-col>
@@ -76,12 +77,9 @@ export default {
     }
   },
   created () {
-    this.$store.commit(types.TITLE, sessionStorage.token)
-    console.log(this.$store.state.token)
     this.axios.post('/api/cardimg', { token: this.$store.state.token }).then((result) => {
       this.cardimg = result.data
       console.log(result)
-      console.log(sessionStorage)
     }).catch((err) => {
       console.log(err)
     });
@@ -95,7 +93,13 @@ export default {
       })
       console.log(this)
     },
-  }
+    onSubmit (value) {
+      var id = value
+      this.$router.push({
+        path: '/video/' + id,
+      })
+    }
+  },
 }
 </script>
 

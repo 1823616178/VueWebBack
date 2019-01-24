@@ -10,7 +10,7 @@ export default new Vuex.Store({
   state: {
     user: {},
     token: null,
-    title: ''
+    id: ''
   },
   mutations: {
     [types.LOGIN]: (state, data) => {
@@ -22,8 +22,8 @@ export default new Vuex.Store({
       localStorage.removeItem('token')
       state.token = null
     },
-    [types.TITLE]: (state, data) => {
-      state.title = data
+    [types.ID]: (state, data) => {
+      state.id = data
     }
   }
 })
