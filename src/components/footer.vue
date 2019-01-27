@@ -1,27 +1,39 @@
 <template>
   <el-row type="flex"
-          justify="space-between"
-          align="top"
-          style="top:10px">
-    <el-col span="7"
-            class="footLeft">
-      <div class="firstText">关于我们</div>
-      <div class="twiceText">儒燕科技有限公司</div>
-      <div class="twiceText">儒燕创客学院</div>
-      <div class="twiceText">加入我们</div>
-    </el-col>
-    <el-col span="7"
-            class="footLeft">
-      <div class="firstText">儒燕科技有限公司</div>
-      <div class="twiceText">微信小程序</div>
-      <div class="twiceText">儒燕创客学院</div>
-      <div class="twiceText">加入我们</div>
-    </el-col>
-    <el-col span="7"
-            class="footLeft">
-      <img src="https://gz.bcebos.com/v1/ruyan/ruyan2/xiaochengxu.png"
-           style="" />
-    </el-col>
+          justify="center">
+    <el-card class="footer_one">
+      <div slot="header"
+           class="clearfix">
+        <span>卡片名称</span>
+      </div>
+      <div v-for="o in 4"
+           :key="o"
+           class="text item">
+        {{'列表内容 ' + o }}
+      </div>
+    </el-card>
+    <el-card class="footer_one">
+      <div slot="header"
+           class="clearfix">
+        <span>卡片名称</span>
+      </div>
+      <div v-for="o in 4"
+           :key="o"
+           class="text item">
+        {{'列表内容 ' + o }}
+      </div>
+    </el-card>
+    <el-card class="footer_one">
+      <div slot="header"
+           class="clearfix">
+        <span>卡片名称</span>
+      </div>
+      <div v-for="o in 4"
+           :key="o"
+           class="text item">
+        {{'列表内容 ' + o }}
+      </div>
+    </el-card>
   </el-row>
 </template>
 
@@ -44,5 +56,20 @@ export default {
 .footLeft {
   position: relative;
   text-align: center;
+}
+.footer_one {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 33%;
+  margin-left: 20px;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
 }
 </style>

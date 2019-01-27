@@ -1,60 +1,57 @@
 <template>
-  <el-form :model="ruleForm3"
-           status-icon
-           :rules="rules2"
-           ref="ruleForm3"
-           label-width="100px"
-           class="demo-ruleForm">
-    <h1>注册</h1>
-    <el-form-item label="账号"
-                  prop="account">
-      <el-input type="account"
-                v-model="ruleForm3.account"
-                autocomplete="on"></el-input>
-    </el-form-item>
-    <el-form-item label="密码"
-                  prop="pass">
-      <el-input type="password"
-                v-model="ruleForm3.pass"
-                autocomplete="off"></el-input>
-    </el-form-item>
-    <el-form-item label="确认密码"
-                  prop="checkPass">
-      <el-input type="password"
-                v-model="ruleForm3.checkPass"
-                autocomplete="off"></el-input>
-    </el-form-item>
-    <el-form-item label="手机"
-                  prop="phone">
-      <el-input v-model.number="ruleForm3.phone"></el-input>
-    </el-form-item>
-    <el-form-item label="邮箱(E-Mail)"
-                  prop="eMail">
-      <el-input v-model.number="ruleForm3.eMail"></el-input>
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary"
-                 @click="submitForm2('ruleForm3')">提交</el-button>
-      <el-button @click="resetForm('ruleForm3')">重置</el-button>
-    </el-form-item>
-  </el-form>
+  <el-row type="flex"
+          justify="center">
+    <el-col span="15">
+      <el-form :model="ruleForm3"
+               status-icon
+               :rules="rules2"
+               ref="ruleForm3"
+               label-width="100px"
+               class="demo-ruleForm">
+        <h1>注册</h1>
+        <el-form-item label="手机号"
+                      prop="phone">
+          <el-input v-model.number="ruleForm3.phone"></el-input>
+        </el-form-item>
+        <el-form-item label="密码"
+                      prop="pass">
+          <el-input type="password"
+                    v-model="ruleForm3.pass"
+                    autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码"
+                      prop="checkPass">
+          <el-input type="password"
+                    v-model="ruleForm3.checkPass"
+                    autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="邮箱(E-Mail)"
+                      prop="eMail">
+          <el-input v-model.number="ruleForm3.eMail"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary"
+                     @click="submitForm2('ruleForm3')">提交</el-button>
+          <el-button @click="resetForm('ruleForm3')">重置</el-button>
+        </el-form-item>
+      </el-form>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
 export default {
   data () {
     var validateMobilePhone = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('负责人手机号不可为空'));
-      } else {
-        if (value !== '') {
-          var reg = /^1[3456789]\d{9}$/;
-          if (!reg.test(value)) {
-            callback(new Error('请输入有效的手机号码'));
-          }
+      this.axios.post('/api/vphone', { phone: value }).then((result) => {
+        console.log(result)
+        if (result.data.code === 1) {
+          callback(new Error(result.data.meg))
         }
-        callback();
-      }
+        if (result.data.code === 2) {
+          callback(new Error(result.data.msg))
+        }
+      })
     };
     var validatePass = (rule, value, callback) => {
       if (value === '') {
@@ -150,4 +147,8 @@ export default {
 </script>
 
 <style>
+.demo-ruleForm {
+  display: table;
+  width: 100%;
+}
 </style>
