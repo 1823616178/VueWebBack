@@ -54,7 +54,7 @@ export default {
   name: 'Nav',
   data () {
     return {
-      isCollapse: true,
+      isCollapse: false,
       type: '',
       router: [],
     };
@@ -69,8 +69,14 @@ export default {
       sessionStorage.removeItem('token')
       console.log(this.$store.commit(types.LOGIN))
       router.go(0)
+    },
+    handleOpen (key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose (key, keyPath) {
+      console.log(key, keyPath);
     }
-  }
+  },
 }
 </script>
 

@@ -6,7 +6,6 @@
         <Nav />
       </el-aside>
       <el-container>
-        <el-header>Header</el-header>
         <el-main>
           <router-view />
         </el-main>
@@ -21,9 +20,10 @@
 <script>
 import Nav from '@/components/Nav.vue'
 import Footer from '@/components/footer.vue'
+import Heard from '@/components/Header/Index.vue'
 export default {
   components: {
-    Nav, Footer
+    Nav, Footer, Heard
   },
   provide () {
     return {
@@ -55,9 +55,13 @@ export default {
   color: #2c3e50;
   margin-top: 0px;
 }
-.el-header,
+.el-header {
+  background-color: aqua;
+  position: relative;
+  line-height: 100%;
+  height: 100%;
+}
 .el-footer {
-  background-color: #ffffff;
   color: #333;
   text-align: center;
   line-height: 60px;
@@ -69,7 +73,6 @@ export default {
   line-height: 200px;
 }
 .el-main {
-  background-color: #ffffff;
   color: #333;
   text-align: center;
   line-height: 160px;

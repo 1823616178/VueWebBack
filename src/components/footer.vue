@@ -4,7 +4,7 @@
     <el-card class="footer_one">
       <div slot="header"
            class="clearfix">
-        <span>卡片名称</span>
+        <span>儒燕科技有限公司</span>
       </div>
       <div v-for="o in 4"
            :key="o"
@@ -59,14 +59,16 @@ export default {
 }
 .footer_one {
   position: relative;
-  display: flex;
   height: 100%;
+  line-height: 20px;
   width: 33%;
+  text-align: left;
   margin-left: 20px;
+  margin-top: 20px;
 }
 .clearfix:before,
 .clearfix:after {
-  display: table;
+  display: block;
   content: "";
 }
 .clearfix:after {

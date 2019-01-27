@@ -1,7 +1,9 @@
 <template>
   <el-row>
     <el-col :span="24">
-      <div class="logoHeard"></div>
+      <div class="logoHeard">
+
+      </div>
     </el-col>
   </el-row>
 </template>
@@ -13,5 +15,7 @@ export default {
 </script>
 
 <style>
-
+.logoHeardP {
+  background-color: black;
+}
 </style>

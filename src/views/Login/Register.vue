@@ -46,10 +46,13 @@ export default {
       this.axios.post('/api/vphone', { phone: value }).then((result) => {
         console.log(result)
         if (result.data.code === 1) {
-          callback(new Error(result.data.meg))
+          callback(new Error(result.data.msg))
         }
         if (result.data.code === 2) {
           callback(new Error(result.data.msg))
+        }
+        if (result.data.code === 0) {
+          callback()
         }
       })
     };
