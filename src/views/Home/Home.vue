@@ -25,6 +25,7 @@ export default {
     }
   },
   created: function () {
+    console.log(window.localStorage)
     console.log(this.$store.state)
   }
 }

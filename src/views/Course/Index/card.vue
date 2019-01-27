@@ -87,17 +87,36 @@ export default {
   methods: {
     handlechange (value) {
       console.log(value[1])
-      this.axios.post('/api/ycourse', { token: this.$store.state.token, crouse: value }).then((result) => {
+      this.axios.post('/api/ycourse', { crouse: value }).then((result) => {
         console.log(result)
         this.cardimg = result.data
       })
       console.log(this)
     },
     onSubmit (value) {
+      var token = window.localStorage['token']
+      console.log(token)
       var id = value
-      this.$router.push({
-        path: '/video/' + id,
-      })
+      this.axios.post('/api/vetoken', { token: token, id: id }).then((result) => {
+        console.log(result)
+        if (result.data.code == 0) {
+          this.$router.push({
+            path: '/video/' + id,
+          })
+          console.log(result)
+        }
+        if (result.data.code == 110) {
+          alert(result.data.msg)
+        }
+        if (result.data.code == 1) {
+          alert(result.data.msg)
+          this.$router.push({
+            path: '/Login'
+          })
+        }
+      }).catch((err) => {
+        console.log(err)
+      });
     }
   },
 }

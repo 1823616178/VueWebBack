@@ -25,7 +25,8 @@
                             trigger="hover"
                             content="购买儒燕365后可观看全部">
                   <el-button slot="reference"
-                             v-bind="text">{{text}}</el-button>
+                             v-bind="text"
+                             @click="onSubmit(item.id)">{{text}}</el-button>
                 </el-popover>
               </div>
             </div>
@@ -43,7 +44,7 @@ export default {
     return {
       item: [],
       name: [],
-      text: ''
+      text: '点击观看'
     }
   },
   created () {
@@ -56,6 +57,14 @@ export default {
       console.log(err)
     });
 
+  },
+  methods: {
+    onSubmit (value) {
+      console.log(value)
+      this.$router.push({
+        path: '/look/' + value
+      })
+    }
   }
 }
 </script>

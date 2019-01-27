@@ -53,12 +53,18 @@ const routes = [
   {
     id: 6,
     path: '/video/:id',
-    component: uservideo
+    component: uservideo,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     id: 7,
-    path: '/look',
-    component: poccal
+    path: '/look/:id',
+    component: poccal,
+    meta: {
+      requireAuth: true
+    }
   }
 ]
 if (window.localStorage.getItem('token')) {
@@ -70,7 +76,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(r => r.meta.requireAuth)) {
-    if (store.state.token) {
+    if (store.state.token !== 'undefined') {
       next()
     } else {
       next({

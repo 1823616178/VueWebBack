@@ -30,10 +30,6 @@
           <i class="el-icon-setting"></i>
           <span slot="title">公司新闻</span>
         </el-menu-item>
-        <el-menu-item index="/look">
-          <i class="el-icon-setting"></i>
-          <span slot="title">kan </span>
-        </el-menu-item>
         <el-menu-item index="/Login"
                       v-if='type==="undefined"'>
           <i class="el-icon-setting"></i>
