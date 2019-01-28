@@ -1,5 +1,22 @@
 <template>
   <div class="home">
+    <vue-particles color="#dedede"
+                   :particleOpacity="0.7"
+                   :particlesNumber="80"
+                   shapeType="circle"
+                   :particleSize="4"
+                   linesColor="#dedede"
+                   :linesWidth="1"
+                   :lineLinked="true"
+                   :lineOpacity="0.4"
+                   :linesDistance="150"
+                   :moveSpeed="3"
+                   :hoverEffect="true"
+                   hoverMode="grab"
+                   :clickEffect="true"
+                   clickMode="push"
+                   class="mainView">
+    </vue-particles>
     <News></News>
     <Course></Course>
     <Card></Card>
@@ -31,6 +48,9 @@ export default {
 }
 </script>
 <style>
+.home {
+  position: relative;
+}
 .el-carousel__item h3 {
   color: #475669;
   font-size: 14px;
@@ -50,6 +70,11 @@ export default {
 .grid-content {
   border-radius: 4px;
   min-height: 36px;
+}
+.mainView {
+  position: fixed;
+  height: 100%;
+  width: 100%;
 }
 </style>
 

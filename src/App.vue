@@ -20,10 +20,9 @@
 <script>
 import Nav from '@/components/Nav.vue'
 import Footer from '@/components/footer.vue'
-import Heard from '@/components/Header/Index.vue'
 export default {
   components: {
-    Nav, Footer, Heard
+    Nav, Footer
   },
   provide () {
     return {
@@ -60,6 +59,10 @@ export default {
   position: relative;
   line-height: 100%;
   height: 100%;
+}
+.mainBar {
+  position: absolute;
+  z-index: -1;
 }
 .el-footer {
   color: #333;
