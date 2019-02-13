@@ -1,101 +1,60 @@
 <template>
-  <el-col class="htmleaf-header">
-    <div id="wrap">
-      <a href="#"
-         class="hb">
-        <div class="c">
-          <img src="../../../plugins/whirligig/images/1.jpg"
-               alt="" />
-          <div class="txt">
-            <h1>Title here</h1>
-            <p>Some longer text here thats wide enough to span on several lines.</p>
-          </div>
-        </div>
-      </a>
-      <div class="fullBg">
-        <img src="../../../plugins/whirligig/images/1.jpg"
-             alt="" />
+  <el-row type="flex"
+          justify="center"
+          align="middle"
+          gutter="10">
+    <el-col span="8">
+      <div class="block">
+        <el-carousel height="400px">
+          <el-carousel-item v-for="item in 2"
+                            :key="item">
+            <h3>{{ item }}</h3>
+          </el-carousel-item>
+        </el-carousel>
       </div>
-      <a href="#"
-         class="hb">
-        <div class="c">
-          <img src="../../../plugins/whirligig/images/2.jpg"
-               alt="" />
-          <div class="txt">
-            <h1>Title here</h1>
-            <p>Some longer text here thats wide enough to span on several lines.</p>
-          </div>
-        </div>
-      </a>
-      <div class="fullBg">
-        <img src="../../../plugins/whirligig/images/2.jpg"
-             alt="" />
+    </el-col>
+    <el-col span="8">
+      <div class="block">
+        <el-carousel height="400px">
+          <el-carousel-item v-for="item in 2"
+                            :key="item">
+            <h3>{{ item }}</h3>
+          </el-carousel-item>
+        </el-carousel>
       </div>
-      <a href="#"
-         class="hb">
-        <div class="c">
-          <img src="../../../plugins/whirligig/images/3.jpg"
-               alt="" />
-          <div class="txt">
-            <h1>Title here</h1>
-            <p>Some longer text here thats wide enough to span on several lines.</p>
-          </div>
-        </div>
-      </a>
-      <div class="fullBg">
-        <img src="../../../plugins/whirligig/images/3.jpg"
-             alt="" />
+    </el-col>
+    <el-col span="8">
+      <div class="block">
+        <el-carousel height="400px">
+          <el-carousel-item v-for="item in 2"
+                            :key="item">
+            <h3>{{ item }}</h3>
+          </el-carousel-item>
+        </el-carousel>
       </div>
-      <a href="#"
-         class="hb">
-        <div class="c">
-          <img src="../../../plugins/whirligig/images/4.jpg"
-               alt="" />
-          <div class="txt">
-            <h1>Title here</h1>
-            <p>Some longer text here thats wide enough to span on several lines.</p>
-          </div>
-        </div>
-      </a>
-      <div class="fullBg">
-        <img src="../../../plugins/whirligig/images/4.jpg"
-             alt="" />
-      </div>
-    </div>
-  </el-col>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
-// import $ from '../../../plugins/whirligig/js/jquery-1.11.0.min.js'
-import $ from 'jQuery'
 export default {
-  created () {
-    $(document).ready(function () {
-      var docWidth = $('body').width(),
-        $wrap = $('#wrap'),
-        $images = $('#wrap .hb'),
-        slidesWidth = $wrap.width();
-
-      $(window).on('resize', function () {
-        docWidth = $('body').width();
-        slidesWidth = $wrap.width();
-      })
-
-      $(document).mousemove(function (e) {
-        var mouseX = e.pageX,
-          offset = mouseX / docWidth * slidesWidth - mouseX / 2;
-
-        $images.css({
-          '-webkit-transform': 'translate3d(' + -offset + 'px,0,0)',
-          'transform': 'translate3d(' + -offset + 'px,0,0)'
-        });
-      });
-    })
+  data () {
+    return {
+      currentDate: new Date()
+    };
   }
 }
 </script>
 
 <style>
-@import url("../../../plugins/whirligig/css/htmleaf-demo.css");
-@import url("../../../plugins/whirligig/css/style.css");
+.image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.robotView {
+  width: 100%;
+  height: 600px;
+  background-color: #f0f0f0;
+}
 </style>

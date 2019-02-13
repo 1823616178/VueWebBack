@@ -4837,6 +4837,11 @@ locate-path@^3.0.0:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
 
+location@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/location/-/location-0.0.1.tgz#fa071d21365dd76661e2271ade8ca1314dc6f580"
+  integrity sha1-+gcdITZd12Zh4ica3oyhMU3G9YA=
+
 lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "http://registry.npm.taobao.org/lodash.debounce/download/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
@@ -5246,6 +5251,11 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "http://registry.npm.taobao.org/natural-compare/download/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
+
+navigator@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/navigator/-/navigator-1.0.1.tgz#ba69c1929a39a9b50eb7e9f5c11178789caf790f"
+  integrity sha1-umnBkpo5qbUOt+n1wRF4eJyveQ8=
 
 needle@^2.2.1:
   version "2.2.4"
@@ -8395,6 +8405,11 @@ xmlchars@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-1.3.1.tgz#1dda035f833dbb4f86a0c28eaa6ca769214793cf"
   integrity sha512-tGkGJkN8XqCod7OT+EvGYK5Z4SfDQGD30zAa58OcnAa0RRWgzUEK72tkXhsX1FZd+rgnhRxFtmO+ihkp8LHSkw==
+
+xmlhttprequest@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/xmlhttprequest/-/xmlhttprequest-1.8.0.tgz#67fe075c5c24fef39f9d65f5f7b7fe75171968fc"
+  integrity sha1-Z/4HXFwk/vOfnWX197f+dRcZaPw=
 
 xregexp@4.0.0:
   version "4.0.0"
