@@ -35,7 +35,7 @@
             <el-menu-item index="/course">小学</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-menu-item index="/">
+        <el-menu-item index="/robot">
           <i class="el-icon-document"></i>
           <span slot="title">机器人考级</span>
         </el-menu-item>

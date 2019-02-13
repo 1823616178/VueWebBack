@@ -13,6 +13,7 @@ import VueVideoPlayer from 'vue-video-player'
 require('video.js/dist/video-js.css')
 require('vue-video-player/src/custom-theme.css')
 import VueParticles from 'vue-particles'
+import VueCookies from 'vue-cookies'
 
 axios.defaults.baseURL = 'http://127.0.0.1'
 axios.defaults.headers.post['Content-Type'] =
@@ -63,6 +64,7 @@ Vue.use(ElementUI)
 Vue.use(qs)
 Vue.use(VueVideoPlayer)
 Vue.use(VueParticles)
+// Vue.use(VueVideoPlayerADS)
 new Vue({
   store,
   router,

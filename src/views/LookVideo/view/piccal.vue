@@ -2,13 +2,16 @@
   <el-row type="flex"
           justify="center">
     <el-col span="15">
-      <video-player class="video-player vjs-custom-skin"
-                    ref="videoPlayer"
-                    :playsinline="true"
-                    :options="playerOptions"
-                    @play="onPlayerPlay($event)"
-                    @pause="onPlayerPause($event)">
-      </video-player>
+      <div class='player'>
+        <video-player class="video-player vjs-custom-skin"
+                      ref="videoPlayer"
+                      :playsinline="true"
+                      :options="playerOptions"
+                      @play="onPlayerPlay($event)"
+                      @pause="onPlayerPause($event)"
+                      @loadeddata="onPlayerLoadeddata($event)">
+        </video-player>
+      </div>
     </el-col>
   </el-row>
 </template>
@@ -31,10 +34,14 @@ export default {
           }
         ],
         poster: "https://gz.bcebos.com/v1/videoruyan/2019-01-24 (1).png",
+        notSupportedMessage: '正在缓存，稍事等待',
       }
     }
   },
   beforeCreate () {
+    // console.log(VueVideoPlayerADS)
+  },
+  created () {
     var id = this.$route.params.id
     this.axios.post('/api/gaveVideo', { id: id }).then((result) => {
       this.playerOptions.sources[0].src = result.data.src
@@ -47,10 +54,20 @@ export default {
   },
   methods: {
     onPlayerPlay (player) {
+      console.log('play' + player)
+    },
+    onPlayerLoadeddata (player) {
+      console.log('load')
       console.log(player)
+    },
+    onPlayerPause (player) {
+      console.log('pause' + player)
     }
   },
   computed: {
+    player () {
+      return this.$refs.videoPlayer.player
+    }
   },
 }
 </script>

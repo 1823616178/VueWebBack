@@ -72,9 +72,8 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.axios.post('/api/login', params).then((result) => {
-            console.log(result)
+            console.log(this)
             sessionStorage.setItem('token', result.data.accessToken)
-
             console.log(sessionStorage)
             this.$store.commit(types.LOGIN, sessionStorage.token)
             this.$router.push({ path: '/' })

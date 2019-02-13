@@ -10,6 +10,7 @@ import register from '@/views/Login/Register.vue'
 import course from '@/views/Course/course'
 import uservideo from '@/views/UserVideo/Index.vue'
 import poccal from '@/views/LookVideo/Index.vue'
+import robot from '@/views/Robot/Index.vue'
 
 Vue.use(Router)
 
@@ -65,6 +66,11 @@ const routes = [
     meta: {
       requireAuth: true
     }
+  },
+  {
+    id: 8,
+    path: '/robot',
+    component: robot
   }
 ]
 if (window.localStorage.getItem('token')) {
