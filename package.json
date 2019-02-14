@@ -16,6 +16,7 @@
     "location": "^0.0.1",
     "navigator": "^1.0.1",
     "qs": "^6.6.0",
+    "quasar": "^1.0.0-beta.1",
     "videojs-contrib-ads": "^6.6.1",
     "vue": "^2.5.17",
     "vue-axios": "^2.1.4",

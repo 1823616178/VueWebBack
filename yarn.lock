@@ -6389,6 +6389,11 @@ qs@^6.6.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.6.0.tgz#a99c0f69a8d26bf7ef012f871cdabb0aee4424c2"
   integrity sha512-KIJqT9jQJDQx5h5uAVPimw6yVg2SekOKu959OCtktD3FjzbpvaPr8i4zzg07DOMz+igA4W/aNM7OV8H37pFYfA==
 
+quasar@^1.0.0-beta.1:
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/quasar/-/quasar-1.0.0-beta.1.tgz#c75aaa82c0dcbf847b5754cbdd95e4817ba59894"
+  integrity sha512-TU3GeV/LjtteqInEdCkT2SPhjDhFdN+0EL0S1kgkO/I91FabpA1A6JGk+IGKCxsrZ5QcKPFCm0y/PbnwHjKFDA==
+
 querystring-es3@^0.2.0:
   version "0.2.1"
   resolved "http://registry.npm.taobao.org/querystring-es3/download/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"

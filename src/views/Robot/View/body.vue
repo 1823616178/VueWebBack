@@ -47,14 +47,17 @@ export default {
 </script>
 
 <style>
-.image {
+.imageBody {
   position: relative;
   height: 100%;
-  width: 100%;
+  background-color: aquamarine;
 }
 .robotView {
   width: 100%;
   height: 600px;
   background-color: #f0f0f0;
+}
+.tableHeader {
+  line-height: 50px;
 }
 </style>
