@@ -19,12 +19,19 @@
               </h1>
               <img src="" />
               <div style="margin-top: 20px">
-                <el-radio-group v-model="radio8"
-                                size="mini">
+                <el-radio-group v-model="radio8">
                   <el-radio label="1"
-                            border>备选项1</el-radio>
+                            border
+                            class="radioCss">备选项1</el-radio>
                   <el-radio label="2"
-                            border>备选项2</el-radio>
+                            border
+                            class="radioCss">备选项2</el-radio>
+                  <el-radio label="3"
+                            border
+                            class="radioCss">备选项2</el-radio>
+                  <el-radio label="4"
+                            border
+                            class="radioCss">备选项2</el-radio>
                 </el-radio-group>
               </div>
             </el-card>
@@ -46,6 +53,11 @@ export default {
         '1', '2'
       ]
     };
+  },
+  methods: {
+    test () {
+      console.log('okok')
+    }
   }
 }
 </script>
@@ -73,5 +85,8 @@ export default {
 }
 .testTag {
   margin-right: 20px;
+}
+.radioCss {
+  z-index: 999;
 }
 </style>
