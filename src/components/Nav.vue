@@ -39,7 +39,7 @@
           <i class="el-icon-document"></i>
           <span slot="title">机器人考级</span>
         </el-menu-item>
-        <el-menu-item index="/">
+        <el-menu-item index="/doc">
           <i class="el-icon-setting"></i>
           <span slot="title">儒燕文档</span>
         </el-menu-item>

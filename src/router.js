@@ -12,6 +12,7 @@ import uservideo from '@/views/UserVideo/Index.vue'
 import poccal from '@/views/LookVideo/Index.vue'
 import robot from '@/views/Robot/Index.vue'
 import robotTest from '@/views/RobotTest/Index.vue'
+import DocView from '@/views/DocView/Index.vue'
 
 Vue.use(Router)
 
@@ -80,6 +81,11 @@ const routes = [
     meta: {
       requireAuth: true
     }
+  },
+  {
+    id: 10,
+    path: '/doc',
+    component: DocView
   }
 ]
 if (window.localStorage.getItem('token')) {
