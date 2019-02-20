@@ -6848,6 +6848,11 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
+scratch-gui@^0.1.0-prerelease.20190219170450:
+  version "0.1.0-prerelease.20190219170450"
+  resolved "https://registry.yarnpkg.com/scratch-gui/-/scratch-gui-0.1.0-prerelease.20190219170450.tgz#49c8ab946546734546803f414a4ee41fe3c69c04"
+  integrity sha512-xScQfMXnHXBDUHKB1V0q0u5wRCRLr0pxYtSIAEx1TyzPe/e5lGZRk3ayJGGeHtcy8VJ9l7TqcKo/3QmRkdnzrw==
+
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/select-hose/download/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"

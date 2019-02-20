@@ -2,10 +2,13 @@
   <el-row>
     <el-col span="24">
       <el-carousel :interval="5000"
-                   arrow="always">
-        <el-carousel-item v-for="item in 4"
-                          :key="item">
-          <h3>{{ item }}</h3>
+                   arrow="always"
+                   height="650px">
+        <el-carousel-item v-for="(item,index) in courseImg"
+                          :key="index">
+          <!-- <h3>{{ item }}</h3> -->
+          <img :src="item.url"
+               class="getImage" />
         </el-carousel-item>
       </el-carousel>
     </el-col>
@@ -74,6 +77,7 @@ export default {
       }],
       cardimg: [],
       value4: null,
+      courseImg: []
     }
   },
   created () {
@@ -82,6 +86,12 @@ export default {
       console.log(result)
     }).catch((err) => {
       console.log(err)
+    });
+    this.axios.get('/api/courseimg').then((result) => {
+      console.log(result.data)
+      this.courseImg = result.data
+    }).catch((err) => {
+
     });
   },
   methods: {
@@ -135,6 +145,11 @@ export default {
   margin-left: 17px;
   display: inline-block;
   vertical-align: top;
+}
+.getImage {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 .elCard {
   height: 350px;
