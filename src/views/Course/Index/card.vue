@@ -29,7 +29,7 @@
           <el-card :body-style="{ padding: '0px' }"
                    class="elCard">
             <img :src="item.pic_url"
-                 class="image">
+                 class="imageUrl">
             <div class="bottom clearfix">
               <el-button type="success"
                          @click="onSubmit(item.id)">点击观看</el-button>
@@ -81,7 +81,7 @@ export default {
     }
   },
   created () {
-    this.axios.post('/api/cardimg', { token: this.$store.state.token }).then((result) => {
+    this.axios.post('/api/getcourseImg', { token: this.$store.state.token }).then((result) => {
       this.cardimg = result.data
       console.log(result)
     }).catch((err) => {
@@ -108,12 +108,10 @@ export default {
       console.log(token)
       var id = value
       this.axios.post('/api/vetoken', { token: token, id: id }).then((result) => {
-        console.log(result)
         if (result.data.code == 0) {
           this.$router.push({
             path: '/video/' + id,
           })
-          console.log(result)
         }
         if (result.data.code == 110) {
           alert(result.data.msg)
@@ -242,8 +240,8 @@ export default {
 }
 
 .bottom {
-  margin-top: 13px;
-  line-height: 12px;
+  margin-top: -70px;
+  line-height: 10px;
 }
 
 .button {
@@ -251,10 +249,10 @@ export default {
   float: right;
 }
 
-.image {
+.imageUrl {
+  position: relative;
   width: 200px;
   height: 250px;
-  display: block;
 }
 
 .clearfix:before,

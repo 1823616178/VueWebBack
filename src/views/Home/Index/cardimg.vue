@@ -1,15 +1,14 @@
 <template>
   <el-row>
-    <el-col :span="4"
-            v-for='(item,index) in card'
+    <div>
+      <span>儒燕文档</span>
+    </div>
+    <el-col :span="8"
+            v-for="(o, index) in card"
             :key="index">
-      <el-card :body-style="{ padding: '0px'}"
-               class="cardMarin">
-        <img :src="item.pic_url"
-             class="image2">
-        <div style="padding: 14px;">
-          <span>{{item.name}}</span>
-        </div>
+      <el-card :body-style="{ padding: '0px' }" >
+        <img :src="o.imgurl"
+             class="image">
       </el-card>
     </el-col>
   </el-row>

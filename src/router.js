@@ -13,6 +13,8 @@ import poccal from '@/views/LookVideo/Index.vue'
 import robot from '@/views/Robot/Index.vue'
 import robotTest from '@/views/RobotTest/Index.vue'
 import DocView from '@/views/DocView/Index.vue'
+import DocList from '@/views/DocView/DocList/Index.vue'
+import DocListLook from '@/views/DocView/DocList/LookDoc.vue'
 
 Vue.use(Router)
 
@@ -86,6 +88,16 @@ const routes = [
     id: 10,
     path: '/doc',
     component: DocView
+  },
+  {
+    id: 11,
+    path: '/doc/doclist/:id',
+    component: DocList
+  },
+  {
+    id: 12,
+    path: '/doc/doclist/docWiew/:id',
+    component: DocListLook
   }
 ]
 if (window.localStorage.getItem('token')) {

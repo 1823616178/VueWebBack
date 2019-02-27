@@ -1,5 +1,8 @@
 <template>
   <el-row>
+    <div>
+      <span>儒燕视频</span>
+    </div>
     <el-col :span="8"
             v-for="(o, index) in 6"
             :key="index"
