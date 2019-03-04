@@ -5,8 +5,9 @@
     </div>
     <el-col :span="8"
             v-for="(o, index) in card"
-            :key="index">
-      <el-card :body-style="{ padding: '0px' }" >
+            :key="index"
+            v-loading="YesGet">
+      <el-card :body-style="{ padding: '0px' }">
         <img :src="o.imgurl"
              class="image">
       </el-card>
@@ -20,12 +21,16 @@ export default {
   data () {
     return {
       card: [],
+      YesGet: true
     }
   },
   created: function () {
     this.axios.post('/api/cardimg', { index: 6 }).then((res) => {
-      window.console.log(res)
-      this.card = res.data
+      if (res) {
+        this.YesGet = false
+        window.console.log(res)
+        this.card = res.data
+      }
     }).catch((err) => {
       console.log(err)
     });

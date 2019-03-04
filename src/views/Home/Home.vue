@@ -39,11 +39,11 @@ export default {
   },
   data () {
     return {
+
     }
   },
-  created: function () {
-    console.log(window.localStorage)
-    console.log(this.$store.state)
+  created () {
+
   }
 }
 </script>

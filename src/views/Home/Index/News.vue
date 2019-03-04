@@ -1,5 +1,6 @@
 <template>
-  <div class="block">
+  <div class="block"
+       v-loading="getSteamYes">
     <el-carousel height="500px">
       <el-carousel-item v-for="(src,index) in getImage"
                         :key="index">
@@ -18,11 +19,15 @@ export default {
   data () {
     return {
       getImage: [],
-      Text: 'Hello'
+      Text: 'Hello',
+      getSteamYes: true
     }
   },
   created: function () {
     this.axios.get('/api/img').then((res) => {
+      if (res) {
+        this.getSteamYes = false;
+      }
       this.getImage = res.data
       console.log(res.data)
     }).catch((err) => {

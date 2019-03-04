@@ -3,7 +3,8 @@
     <el-col span="24">
       <el-carousel :interval="5000"
                    arrow="always"
-                   height="650px">
+                   height="650px"
+                   v-loading="loading1">
         <el-carousel-item v-for="(item,index) in courseImg"
                           :key="index">
           <!-- <h3>{{ item }}</h3> -->
@@ -22,7 +23,8 @@
     <div>
       <el-row style="flex"
               justify="center"
-              align="top">
+              align="top"
+              v-loading="loading2">
         <el-col :span="4"
                 v-for="(item,index) in cardimg"
                 :key="index">
@@ -77,19 +79,27 @@ export default {
       }],
       cardimg: [],
       value4: null,
-      courseImg: []
+      courseImg: [],
+      loading1: true,
+      loading2: true
     }
   },
   created () {
     this.axios.post('/api/getcourseImg', { token: this.$store.state.token }).then((result) => {
-      this.cardimg = result.data
-      console.log(result)
+      if (result) {
+        this.loading2 = false
+        this.cardimg = result.data
+        console.log('tou', result)
+      }
     }).catch((err) => {
       console.log(err)
     });
     this.axios.get('/api/courseimg').then((result) => {
-      console.log(result.data)
-      this.courseImg = result.data
+      if (result) {
+        this.loading1 = false
+        console.log(result.data)
+        this.courseImg = result.data
+      }
     }).catch((err) => {
 
     });

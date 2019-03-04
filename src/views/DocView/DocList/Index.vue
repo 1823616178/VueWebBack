@@ -2,7 +2,10 @@
   <div>
     <el-row type="flex"
             justify="center"
-            align="middle">
+            align="middle"
+            v-loading.fullscreen.lock="fullscreenLoading"
+            element-loading-spinner="el-icon-loading"
+            element-loading-text="别着急好戏在后头">
       <el-col span="15">
         <el-card class="box-card"
                  span="15">
@@ -36,19 +39,23 @@
 export default {
   data () {
     return {
+      fullscreenLoading: true,
       List: [],
       hrefUrl: '',
       page_mix: '',
       page_now: 0,
-      year: ''
+      year: '',
     }
   },
   created () {
     this.year = this.$route.params.id
     this.axios.post('/api/doclist', { id: this.year, page: this.page_now }).then((result) => {
       console.log(result)
-      this.List = result.data.docList
-      this.page_mix = result.data.amount
+      if (result) {
+        this.fullscreenLoading = false
+        this.List = result.data.docList
+        this.page_mix = result.data.amount
+      }
     }).catch((err) => {
       console.log(err)
     });
