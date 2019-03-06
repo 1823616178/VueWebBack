@@ -8,9 +8,6 @@
           <img src="https://catca.oss-cn-beijing.aliyuncs.com/uploads/image/70/70bd94cb028a21d41fe32b53ef136bdd.jpg"
                class="carImage2" />
         </div>
-        <div class="text item">
-
-        </div>
       </el-card>
       <el-card class="box-card">
         <div v-for="(item,index) in item"
@@ -106,6 +103,7 @@ export default {
 }
 .box-card {
   width: 100%;
+  margin-top: 0px;
   line-height: 0px;
 }
 .carImage2 {
@@ -124,6 +122,6 @@ export default {
 }
 .popoverView {
   position: absolute;
-  right: 500px;
+  right: 200px;
 }
 </style>

@@ -10,7 +10,8 @@ export default new Vuex.Store({
   state: {
     user: {},
     token: null,
-    id: ''
+    id: '',
+    NavSwitchWidth:''
   },
   mutations: {
     [types.LOGIN]: (state, data) => {
@@ -25,5 +26,8 @@ export default new Vuex.Store({
     [types.ID]: (state, data) => {
       state.id = data
     }
+  },
+  actions: {
+    
   }
 })

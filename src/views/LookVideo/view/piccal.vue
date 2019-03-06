@@ -33,7 +33,7 @@ export default {
             type: "video/mp4"
           }
         ],
-        poster: "https://gz.bcebos.com/v1/videoruyan/2019-01-24 (1).png",
+        poster: "",
         notSupportedMessage: '正在缓存，稍事等待',
       }
     }

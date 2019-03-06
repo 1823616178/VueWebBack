@@ -1,11 +1,32 @@
 <template>
   <div id="app">
     <el-container>
-      <el-aside width="155px"
+      <!-- <el-aside width="150px"
                 v-if="isRouterAlive">
-        <Nav />
-      </el-aside>
+        <Nav class="NavClassCss" />
+      </el-aside> -->
       <el-container>
+        <el-row type="flex"
+                justify="start"
+                align="middle"
+                class="el-headerCSS">
+          <el-col span="10"
+                  offset="2">
+            <el-header :style="HeaderCss">
+              <img src='https://gz.bcebos.com/v1/videoruyan/images/ruyanTitle.png'
+                   height="100%" />
+            </el-header>
+          </el-col>
+          <el-col offset="1"
+                  span="6">
+
+            <el-input v-model="input"
+                      placeholder="搜索课程" />
+            <el-button @click="SearchCourse">点击搜索</el-button>
+
+          </el-col>
+        </el-row>
+        <Nav class="NavClassCss" />
         <el-main>
           <router-view />
         </el-main>
@@ -31,10 +52,27 @@ export default {
   },
   data () {
     return {
+      input: '',
+      HeaderCss: 'height:100px',
+      widdth: '',
       isRouterAlive: true
     }
   },
+  created () {
+    console.log(this.widdth)
+  },
   methods: {
+    SearchCourse () {
+      var title = this.input
+      this.axios.post('/api/searchCourse', { data: title }).then((result) => {
+        console.log(result)
+      }).catch((err) => {
+
+      });
+    },
+    SwitchWith (value) {
+      console.log(value)
+    },
     reload () {
       this.isRouterAlive = false
       this.$nextTick(function () {
@@ -54,11 +92,14 @@ export default {
   color: #2c3e50;
   margin-top: 0px;
 }
-.el-header {
-  background-color: aqua;
-  position: relative;
-  line-height: 100%;
-  height: 100%;
+.el-headerCSS {
+  background-color: #f5f5f5;
+}
+.switchNav {
+  position: absolute;
+  z-index: 100;
+  margin-top: 1%;
+  margin-left: 1%;
 }
 .mainBar {
   position: absolute;
@@ -69,11 +110,13 @@ export default {
   text-align: center;
   line-height: 60px;
 }
-
+.Navclass {
+  position: relative;
+}
 .el-aside {
   color: #333;
   text-align: center;
-  line-height: 200px;
+  line-height: 100px;
 }
 .el-main {
   color: #333;

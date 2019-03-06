@@ -1,8 +1,5 @@
 <template>
   <el-row>
-    <div>
-      <span>儒燕文档</span>
-    </div>
     <el-col :span="8"
             v-for="(o, index) in card"
             :key="index"
