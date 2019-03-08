@@ -59,6 +59,8 @@ export default {
     }
   },
   created () {
+    console.log(this.$store)
+    this.$store.getters
     console.log(this.widdth)
   },
   methods: {

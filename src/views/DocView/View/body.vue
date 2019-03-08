@@ -1,5 +1,6 @@
 <template>
-  <el-row style="margin-top:40px;">
+  <el-row style="margin-top:40px;"
+          v-loading.fullscreen.lock="loading">
     <el-col :span="8"
             v-for="(o, index) in card"
             :key="index">
@@ -17,13 +18,17 @@
 export default {
   data () {
     return {
-      card: []
+      card: [],
+      loading: true
     }
   },
   created: function () {
     this.axios.post('/api/cardimg', { index: 6 }).then((res) => {
-      window.console.log(res)
-      this.card = res.data
+      if (res) {
+        this.loading = false
+        window.console.log(res)
+        this.card = res.data
+      }
     }).catch((err) => {
       console.log(err)
     });

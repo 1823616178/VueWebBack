@@ -24,8 +24,8 @@
       <el-row style="flex"
               justify="center"
               align="top"
-              v-loading="loading2">
-        <el-col :span="4"
+              v-loading.fullscreen.lock="loading2">
+        <el-col :span="4" 
                 v-for="(item,index) in cardimg"
                 :key="index">
           <el-card :body-style="{ padding: '0px' }"

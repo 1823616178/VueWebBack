@@ -3,7 +3,8 @@
     <el-row type="flex"
             justify="center"
             align="middle"
-            style="margin-top:20px;">
+            style="margin-top:20px;"
+            v-loading="loading">
       <el-col span="15">
         <el-card class="clearfix">
           <el-row type="flex"
@@ -53,9 +54,12 @@ export default {
   name: 'cardcouse',
   created () {
     this.axios.get('/api/gaveindeximg').then((result) => {
-      console.log(result)
-      this.img = result.data.img
-      this.TextVideo = result.data.TextVideo
+      if (result) {
+        this.loading = false
+        console.log(result)
+        this.img = result.data.img
+        this.TextVideo = result.data.TextVideo
+      }
     }).catch((err) => {
 
     });
@@ -64,6 +68,7 @@ export default {
     return {
       img: [],
       TextVideo: [],
+      loading: true
     }
   },
   methods: {

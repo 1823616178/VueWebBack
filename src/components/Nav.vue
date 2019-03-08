@@ -68,7 +68,6 @@ export default {
   created: function () {
     this.type = store.state.token;
     this.router = router.options.routes
-    console.log(this.$store)
   },
   mounted () {
     this.SwitchWinth = this.$refs.abc.$el.clientWidth

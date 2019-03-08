@@ -1,7 +1,7 @@
 <template>
   <el-row type="flex"
           justify="center">
-    <el-col span="15">
+    <el-col span="10">
       <el-form :model="ruleForm3"
                status-icon
                :rules="rules2"
@@ -10,23 +10,27 @@
                class="demo-ruleForm">
         <h1>注册</h1>
         <el-form-item label="手机号"
-                      prop="phone">
+                      prop="phone"
+                      label-width="20%">
           <el-input v-model.number="ruleForm3.phone"></el-input>
         </el-form-item>
         <el-form-item label="密码"
-                      prop="pass">
+                      prop="pass"
+                      label-width="20%">
           <el-input type="password"
                     v-model="ruleForm3.pass"
                     autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="确认密码"
-                      prop="checkPass">
+                      prop="checkPass"
+                      label-width="20%">
           <el-input type="password"
                     v-model="ruleForm3.checkPass"
                     autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="邮箱(E-Mail)"
-                      prop="eMail">
+                      prop="eMail"
+                      label-width="20%">
           <el-input v-model.number="ruleForm3.eMail"></el-input>
         </el-form-item>
         <el-form-item>

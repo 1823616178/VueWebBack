@@ -16,7 +16,7 @@ import VueParticles from 'vue-particles'
 import VueCookies from 'vue-cookies'
 import Quasar from 'quasar'
 
-axios.defaults.baseURL = 'http://127.0.0.1'
+axios.defaults.baseURL = 'http://192.168.0.108'
 axios.defaults.headers.post['Content-Type'] =
   'application/x-www-form-urlencoded'
 
