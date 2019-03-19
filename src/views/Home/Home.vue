@@ -39,11 +39,22 @@ export default {
   },
   data () {
     return {
-
+      code: ""
     }
   },
   created () {
-
+    this.code = this.$util.getQueryString('code')
+    console.log(this.code)
+    if (this.code) {
+      this.axios.post('/api/getunionId', {
+        code: this.code
+      }).then(response => {
+        // let data = response.data.meta
+        // this.$token.set(data.access_token)
+        // window.location.href = '/'
+        console.log(response)
+      })
+    }
   }
 }
 </script>

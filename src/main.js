@@ -15,8 +15,9 @@ require('vue-video-player/src/custom-theme.css')
 import VueParticles from 'vue-particles'
 import VueCookies from 'vue-cookies'
 import Quasar from 'quasar'
+import Util from '@/plugins/util.js'
 
-axios.defaults.baseURL = 'http://192.168.0.108'
+axios.defaults.baseURL = 'http://127.0.0.1'
 axios.defaults.headers.post['Content-Type'] =
   'application/x-www-form-urlencoded'
 
@@ -66,6 +67,7 @@ Vue.use(qs)
 Vue.use(VueVideoPlayer)
 Vue.use(VueParticles)
 Vue.use(Quasar)
+Vue.prototype.$util = Util
 // Vue.use(VueVideoPlayerADS)
 new Vue({
   store,

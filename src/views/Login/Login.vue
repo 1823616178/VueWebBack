@@ -48,7 +48,7 @@ export default {
   name: 'Login',
   data () {
     return {
-      url: "https://open.weixin.qq.com/connect/qrconnect?appid=wx7d19061752e526e5&redirect_uri=http://www.rymaker.com&response_type=code&scope=snsapi_login",
+      url: "https://open.weixin.qq.com/connect/qrconnect?appid=wx7d19061752e526e5&redirect_uri=http://test.rymaker.xyz&response_type=code&scope=snsapi_login",
       ruleForm2: {
         username: '',
         passwd: ''
